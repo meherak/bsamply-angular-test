@@ -2,7 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -12,17 +12,38 @@
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
+    "noImplicitAny": true,
     "downlevelIteration": true,
     "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2020",
     "module": "es2020",
+    "types": [],
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@shared/*": [
+        "./app/shared/*"
+      ],
+      "@core/*": [
+        "./app/core/*"
+      ],
+      "@environments/*": [
+        "./environments/*"
+      ],
+    }
   },
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts"
+  ],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
