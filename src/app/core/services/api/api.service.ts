@@ -13,7 +13,7 @@ export class ApiService implements DAOApiService {
 
   get<T>(
     path: string,
-    params?: HttpParams,
+    params?: HttpParams | { [param: string]: string },
     headers?: HttpHeaders
   ): Observable<T> {
     return this.httpClient.get<T>(`${this.baseUrl}${path}`, {

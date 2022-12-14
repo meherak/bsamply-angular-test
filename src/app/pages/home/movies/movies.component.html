@@ -1,0 +1,38 @@
+<div class="mt-8 grid grid-cols-12 gap-4 mb-8">
+  <div class="col-span-9">
+    <div class="grid gap-4 grid-cols-6 mb-4" *ngFor="let review of reviews">
+      <div>
+        <div class="text-xs text-gray-400">{{ review.date_updated }}</div>
+        <a [href]="review.link.url" class="text-sm text-blue-500 underline"
+          >Read review</a
+        >
+      </div>
+      <div class="col-span-4">
+        <h2 class="font-bold text-lg">{{ review.display_title }}</h2>
+        <p class="mb-2">
+          {{ review.summary_short }}
+        </p>
+        <span class="text-sm text-gray-400"
+          >By {{ review.byline | uppercase }}</span
+        >
+      </div>
+      <div>
+        <img class="w-full" [src]="review.multimedia.src" alt="review" />
+      </div>
+    </div>
+    <div class="text-center">
+      <button
+        class="uppercase font-bold text-xs rounded-sm py-2 px-4 cursor-pointer bg-gray-200"
+      >
+        show more
+      </button>
+    </div>
+  </div>
+  <div class="col-span-3">
+    <img
+      class="w-full"
+      src="https://via.placeholder.com/320x600.png?text=just+an+image"
+      alt="sidebar"
+    />
+  </div>
+</div>

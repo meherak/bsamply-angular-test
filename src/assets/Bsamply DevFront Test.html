@@ -1,0 +1,168 @@
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Movie reviews</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<body>
+    <div class="bg-gray-50 border-b py-20 mb-8 px-4">
+        <div class="container mx-auto">
+            <h1 class="font-bold text-4xl mb-2">Movie Reviews</h1>
+            <h2 class="text-lg font-bold mb-2">Description</h2>
+            <p class="text-gray-400">The goal of this test is to use the <a class="text-blue-400 underline" href="https://developer.nytimes.com/docs/movie-reviews-api/1/routes/reviews/search.json/get" target="_blank">Movie reciews API</a> to implement the current html page with an <strong>Angular</strong> application (you will need to create an account to get an API key).</p>
+            <p class="text-gray-400">The user will be able to search via the input, filter by critic's pick and order either by publication date or by opening date.</p>
+            <p class="text-gray-400">By default 10 reviews will be loaded and the user will be able to load more by clicking the button bellow until there is no more reviews to load.</p>
+            <p class="text-gray-400">Each item will have the link to the full review (which will point to NYT itself).</p>
+            <h2 class="text-lg font-bold my-2">Notes</h2>
+            <p class="text-gray-400">your work will be evaluated depending to this cretaria:</p>
+            <ul class="text-gray-400 list-disc pl-8">
+                <li>if your app is functional in the right way without errors</li>
+                <li>how you structured your code and how you devided the project into components (think of it as scalable project, that will get bigger in the future)</li>
+                <li>the readability and the maintainability of your code (like if you are working in a team)</li>
+                <li>How much you care about details</li>
+            </ul>
+            <h2 class="text-lg font-bold my-2">Bonuses</h2>
+            <p class="text-gray-400">the following notes are optional, but we recommend them:</p>
+            <ul class="text-gray-400 list-disc pl-8">
+                <li>This app is not responsive right now it will be great if you make it responive using tailwindcss.</li>
+                <li>We recommend you to keep the working history of you progress by keeping the commit history when you push the project</li>
+                <li>If you see that any of the asked features or components can be done in deffirent ways, you can justify your choosen solution by writing comments inside your code or creating a readme or pdf file.</li>
+            </ul>
+            <h2 class="text-lg font-bold my-2">Finally</h2>
+            <p class="text-gray-400">When you finish working on the project, please push it to any git repository of your choice and give access to <a class="text-blue-400 underline" href="mailto:essam-ayari@dedagroup.it">essam-ayari@dedagroup.it</a></p>
+            <p class="text-gray-400">If you have any notes or questions about the test, please don't hesitate to contact me via the same email.</p>
+
+        </div>
+    </div>
+    <div class="container mx-auto px-4">
+        
+        
+        <div class="grid gap-4 grid-cols-4">
+            <div class="col-span-2"><input type="text" class="w-full p-2 border border-gray-200" placeholder="search"></div>
+            <div class="flex items-center">
+                <input type="checkbox" autocomplete="off">
+                    <label class="ml-2 flex items-center" for="critics-pick-filter"><span><span>NYT Critic’s Pick</span></span>
+                    </label>
+            </div>
+            <div class="flex items-center">
+                <span class="text-gray-400">Results sorted by</span>
+                <select class="outline-0">
+                    <option>publication date</option>
+                    <option>opening date</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="mt-8 grid grid-cols-12 gap-4 mb-8">
+            <div class="col-span-9">
+                <div class="grid gap-4 grid-cols-6 mb-4">
+                    <div>
+                        <div class="text-xs text-gray-400">Dec. 1, 2022</div>
+                        <a href="#" class="text-sm text-blue-500 underline">Read review</a>
+                    </div>
+                    <div class="col-span-4">
+                        <h2 class="font-bold text-lg">The Eternal Daughter</h2>
+                        <p class="mb-2">The actress astonishes in two roles in Joanna Hogg’s haunting film set in a creaky castle in Wales.</p>
+                        <span class="text-sm text-gray-400">By MANOHLA DARGIS</span>
+                    </div>
+                    <div>
+                        <img class="w-full" src="https://static01.nyt.com/images/2022/12/02/multimedia/02-eternal-print-1-4475/02-eternal-print-1-4475-mediumThreeByTwo210.jpg" alt="review">
+                    </div>
+                </div>
+                <div class="grid gap-4 grid-cols-6 mb-4">
+                    <div>
+                        <div class="text-xs text-gray-400">Dec. 1, 2022</div>
+                        <a href="#" class="text-sm text-blue-500 underline">Read review</a>
+                    </div>
+                    <div class="col-span-4">
+                        <h2 class="font-bold text-lg">The Eternal Daughter</h2>
+                        <p class="mb-2">The actress astonishes in two roles in Joanna Hogg’s haunting film set in a creaky castle in Wales.</p>
+                        <span class="text-sm text-gray-400">By MANOHLA DARGIS</span>
+                    </div>
+                    <div>
+                        <img class="w-full" src="https://static01.nyt.com/images/2022/12/02/multimedia/02-eternal-print-1-4475/02-eternal-print-1-4475-mediumThreeByTwo210.jpg" alt="review">
+                    </div>
+                </div>
+                <div class="grid gap-4 grid-cols-6 mb-4">
+                    <div>
+                        <div class="text-xs text-gray-400">Dec. 1, 2022</div>
+                        <a href="#" class="text-sm text-blue-500 underline">Read review</a>
+                    </div>
+                    <div class="col-span-4">
+                        <h2 class="font-bold text-lg">The Eternal Daughter</h2>
+                        <p class="mb-2">The actress astonishes in two roles in Joanna Hogg’s haunting film set in a creaky castle in Wales.</p>
+                        <span class="text-sm text-gray-400">By MANOHLA DARGIS</span>
+                    </div>
+                    <div>
+                        <img class="w-full" src="https://static01.nyt.com/images/2022/12/02/multimedia/02-eternal-print-1-4475/02-eternal-print-1-4475-mediumThreeByTwo210.jpg" alt="review">
+                    </div>
+                </div>
+                <div class="grid gap-4 grid-cols-6 mb-4">
+                    <div>
+                        <div class="text-xs text-gray-400">Dec. 1, 2022</div>
+                        <a href="#" class="text-sm text-blue-500 underline">Read review</a>
+                    </div>
+                    <div class="col-span-4">
+                        <h2 class="font-bold text-lg">The Eternal Daughter</h2>
+                        <p class="mb-2">The actress astonishes in two roles in Joanna Hogg’s haunting film set in a creaky castle in Wales.</p>
+                        <span class="text-sm text-gray-400">By MANOHLA DARGIS</span>
+                    </div>
+                    <div>
+                        <img class="w-full" src="https://static01.nyt.com/images/2022/12/02/multimedia/02-eternal-print-1-4475/02-eternal-print-1-4475-mediumThreeByTwo210.jpg" alt="review">
+                    </div>
+                </div>
+                <div class="grid gap-4 grid-cols-6 mb-4">
+                    <div>
+                        <div class="text-xs text-gray-400">Dec. 1, 2022</div>
+                        <a href="#" class="text-sm text-blue-500 underline">Read review</a>
+                    </div>
+                    <div class="col-span-4">
+                        <h2 class="font-bold text-lg">The Eternal Daughter</h2>
+                        <p class="mb-2">The actress astonishes in two roles in Joanna Hogg’s haunting film set in a creaky castle in Wales.</p>
+                        <span class="text-sm text-gray-400">By MANOHLA DARGIS</span>
+                    </div>
+                    <div>
+                        <img class="w-full" src="https://static01.nyt.com/images/2022/12/02/multimedia/02-eternal-print-1-4475/02-eternal-print-1-4475-mediumThreeByTwo210.jpg" alt="review">
+                    </div>
+                </div>
+                <div class="grid gap-4 grid-cols-6 mb-4">
+                    <div>
+                        <div class="text-xs text-gray-400">Dec. 1, 2022</div>
+                        <a href="#" class="text-sm text-blue-500 underline">Read review</a>
+                    </div>
+                    <div class="col-span-4">
+                        <h2 class="font-bold text-lg">The Eternal Daughter</h2>
+                        <p class="mb-2">The actress astonishes in two roles in Joanna Hogg’s haunting film set in a creaky castle in Wales.</p>
+                        <span class="text-sm text-gray-400">By MANOHLA DARGIS</span>
+                    </div>
+                    <div>
+                        <img class="w-full" src="https://static01.nyt.com/images/2022/12/02/multimedia/02-eternal-print-1-4475/02-eternal-print-1-4475-mediumThreeByTwo210.jpg" alt="review">
+                    </div>
+                </div>
+                <div class="grid gap-4 grid-cols-6 mb-4">
+                    <div>
+                        <div class="text-xs text-gray-400">Dec. 1, 2022</div>
+                        <a href="#" class="text-sm text-blue-500 underline">Read review</a>
+                    </div>
+                    <div class="col-span-4">
+                        <h2 class="font-bold text-lg">The Eternal Daughter</h2>
+                        <p class="mb-2">The actress astonishes in two roles in Joanna Hogg’s haunting film set in a creaky castle in Wales.</p>
+                        <span class="text-sm text-gray-400">By MANOHLA DARGIS</span>
+                    </div>
+                    <div>
+                        <img class="w-full" src="https://static01.nyt.com/images/2022/12/02/multimedia/02-eternal-print-1-4475/02-eternal-print-1-4475-mediumThreeByTwo210.jpg" alt="review">
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="uppercase font-bold text-xs rounded-sm py-2 px-4 cursor-pointer bg-gray-200">show more</button>
+                </div>
+            </div>
+            <div class="col-span-3">
+                <img class="w-full" src="https://via.placeholder.com/320x600.png?text=just+an+image" alt="sidebar">
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

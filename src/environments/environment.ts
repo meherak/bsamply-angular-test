@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   baseUrl: 'https://api.nytimes.com/svc/movies/v2',
-  API_KEY: '',
+  API_KEY: 'GgVjClGz7eDCG574MTiYgs1uyLPG8v0S',
 };
 
 /*

@@ -1,10 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { ReviewsService } from '@core/services';
+import { BaseComponent } from '@shared/components/base.component';
 
 @Component({
   selector: 'bsamply-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: '<bsamply-home></bsamply-home>',
 })
-export class AppComponent {
-  title = 'bsamply-test';
+export class AppComponent extends BaseComponent implements OnInit {
+  constructor(private readonly reviewsService: ReviewsService) {
+    super();
+  }
+  ngOnInit(): void {
+    this.reviewsService.loadData();
+  }
 }

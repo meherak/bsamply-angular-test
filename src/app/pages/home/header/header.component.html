@@ -1,0 +1,33 @@
+<div class="grid gap-4 grid-cols-4" [formGroup]="form">
+  <div class="col-span-2">
+    <input
+      type="text"
+      class="w-full p-2 border border-gray-200"
+      placeholder="search"
+      formControlName="search"
+      (change)="formChangeHandler()"
+    />
+  </div>
+  <div class="flex items-center">
+    <input
+      type="checkbox"
+      autocomplete="off"
+      formControlName="criticsPick"
+      (change)="formChangeHandler()"
+    />
+    <label class="ml-2 flex items-center" for="critics-pick-filter"
+      ><span><span>NYT Critic’s Pick</span></span>
+    </label>
+  </div>
+  <div class="flex items-center">
+    <span class="text-gray-400">Results sorted by</span>
+    <select
+      class="outline-0"
+      formControlName="order"
+      (change)="formChangeHandler()"
+    >
+      <option>publication date</option>
+      <option>opening date</option>
+    </select>
+  </div>
+</div>
