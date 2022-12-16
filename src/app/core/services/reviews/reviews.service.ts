@@ -41,7 +41,7 @@ export class ReviewsService {
       });
   }
 
-  loadMore(prms: SearchParams) {
+  loadMore(prms: SearchParams): void {
     const params: { [param: string]: string | number } = paramsFactory(prms);
 
     this.api

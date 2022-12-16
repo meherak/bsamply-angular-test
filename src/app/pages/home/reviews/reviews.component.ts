@@ -21,8 +21,10 @@ export class ReviewsComponent
   extends BaseComponent
   implements OnInit, OnChanges
 {
-  private showMoreCount = 0;
+  public error = '';
+  public loading = true;
   public reviews: Review[];
+  private showMoreCount = 0;
   public hasMoreReviews = false;
   @Input() searchParams: SearchParams = {};
   constructor(public readonly reviewsService: ReviewsService) {
@@ -40,12 +42,14 @@ export class ReviewsComponent
       (data) => {
         this.reviews = data.results;
         this.hasMoreReviews = data.has_more;
+        this.loading = false;
       }
     );
     this.subscriptions.push(sub);
   }
 
   handleShowMore() {
+    this.loading = true;
     this.showMoreCount++;
     const params: SearchParams = {
       ...this.searchParams,
