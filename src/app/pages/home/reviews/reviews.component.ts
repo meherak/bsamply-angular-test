@@ -1,4 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Input,
+  OnInit,
+  OnChanges,
+  Component,
+  SimpleChanges,
+} from '@angular/core';
 
 import { Subscription } from 'rxjs';
 
@@ -11,13 +17,22 @@ import { BaseComponent } from '@shared/components/base.component';
   templateUrl: './reviews.component.html',
   styleUrls: ['./reviews.component.scss'],
 })
-export class ReviewsComponent extends BaseComponent implements OnInit {
+export class ReviewsComponent
+  extends BaseComponent
+  implements OnInit, OnChanges
+{
   private showMoreCount = 0;
   public reviews: Review[];
   public hasMoreReviews = false;
   @Input() searchParams: SearchParams = {};
   constructor(public readonly reviewsService: ReviewsService) {
     super();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['searchParams']) {
+      this.showMoreCount = 0;
+    }
   }
 
   ngOnInit(): void {
