@@ -1,17 +1,18 @@
-<div class="grid gap-4 grid-cols-4" [formGroup]="form">
+<div class="grid gap-4 grid-cols-4 mt-8" [formGroup]="form">
   <div class="col-span-2">
     <input
       type="text"
       class="w-full p-2 border border-gray-200"
       placeholder="search"
       formControlName="search"
-      (change)="formChangeHandler()"
+      (input)="onSearchQueryInput($event)"
     />
   </div>
   <div class="flex items-center">
     <input
       type="checkbox"
       autocomplete="off"
+      title="criticsPick"
       formControlName="criticsPick"
       (change)="formChangeHandler()"
     />
@@ -22,6 +23,7 @@
   <div class="flex items-center">
     <span class="text-gray-400">Results sorted by</span>
     <select
+      title="order"
       class="outline-0"
       formControlName="order"
       (change)="formChangeHandler()"

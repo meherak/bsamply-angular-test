@@ -1,4 +1,6 @@
 <div class="container mx-auto px-4">
-  <bsamply-header></bsamply-header>
-  <bsamply-movies></bsamply-movies>
+  <bsamply-header
+    (searchParamsEmitter)="setSearchParams($event)"
+  ></bsamply-header>
+  <bsamply-reviews [searchParams]="searchParams"></bsamply-reviews>
 </div>

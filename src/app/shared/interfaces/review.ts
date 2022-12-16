@@ -22,5 +22,5 @@ export interface Review {
   opening_date: Date;
   date_updated: Date;
   link: Link;
-  multimedia: MultiMedia;
+  multimedia: MultiMedia | null;
 }

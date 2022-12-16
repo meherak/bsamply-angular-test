@@ -2,8 +2,14 @@
   <div class="col-span-9">
     <div class="grid gap-4 grid-cols-6 mb-4" *ngFor="let review of reviews">
       <div>
-        <div class="text-xs text-gray-400">{{ review.date_updated }}</div>
-        <a [href]="review.link.url" class="text-sm text-blue-500 underline"
+        <div class="text-xs text-gray-400">
+          {{ review.publication_date | date : "mediumDate" }}
+        </div>
+        <a
+          target="_blank"
+          [href]="review.link.url"
+          class="text-sm text-blue-500 underline"
+          [title]="review.link.suggested_link_text"
           >Read review</a
         >
       </div>
@@ -17,12 +23,14 @@
         >
       </div>
       <div>
-        <img class="w-full" [src]="review.multimedia.src" alt="review" />
+        <img class="w-full" [src]="review.multimedia?.src" alt="review" />
       </div>
     </div>
     <div class="text-center">
       <button
         class="uppercase font-bold text-xs rounded-sm py-2 px-4 cursor-pointer bg-gray-200"
+        (click)="handleShowMore()"
+        [hidden]="!hasMoreReviews"
       >
         show more
       </button>

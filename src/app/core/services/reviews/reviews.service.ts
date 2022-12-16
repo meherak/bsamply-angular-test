@@ -1,54 +1,56 @@
 import { Injectable } from '@angular/core';
+
 import { BehaviorSubject, Observable } from 'rxjs';
 
 import { ApiService } from '@core/services';
-import { SearchParams, NytApiResponse, Review } from '@shared/interfaces';
-
-enum Order {
-  oDate = 'by-opening-date',
-  pDate = 'by-publication-date',
-}
+import { paramsFactory } from '@shared/utils';
+import { NytApiResponse } from '@shared/models';
+import { SearchParams } from '@shared/interfaces';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ReviewsService {
-  private readonly _reviewData = new BehaviorSubject<Review[]>([]);
-  readonly reviewData$: Observable<Review[]> = this._reviewData.asObservable();
+  private readonly url = '/reviews/search.json';
+  private readonly _reviewData = new BehaviorSubject<NytApiResponse>(
+    new NytApiResponse()
+  );
+  readonly reviewData$: Observable<NytApiResponse> =
+    this._reviewData.asObservable();
 
   constructor(private readonly api: ApiService) {}
 
-  get reviews(): Review[] {
+  get reviews(): NytApiResponse {
     return this._reviewData.getValue();
   }
 
-  private set reviews(val: Review[]) {
+  private set reviews(val: NytApiResponse) {
     this._reviewData.next(val);
   }
 
   loadData(prms?: SearchParams): void {
-    const url = '/reviews/search.json';
+    let params: { [param: string]: string | number } = {};
+    if (prms) {
+      params = paramsFactory(prms);
+    }
 
-    const query = prms?.search;
-    const order =
-      prms?.order === 'publication date'
-        ? Order.pDate
-        : prms?.order === 'opening date'
-        ? Order.oDate
-        : null;
-    const criticsPick =
-      prms?.criticsPick === true
-        ? 'Y'
-        : prms?.criticsPick === false
-        ? 'N'
-        : null;
-    const params: { [param: string]: string } = {};
-    if (!!order) params['order'] = order;
-    if (!!query) params['query'] = query;
-    if (!!criticsPick) params['critics-pick'] = criticsPick;
+    this.api
+      .get<NytApiResponse>(this.url, params)
+      .subscribe((res: NytApiResponse) => {
+        this.reviews = res;
+      });
+  }
 
-    this.api.get<NytApiResponse>(url, params).subscribe((res) => {
-      this.reviews = res.results;
-    });
+  loadMore(prms: SearchParams) {
+    const params: { [param: string]: string | number } = paramsFactory(prms);
+
+    this.api
+      .get<NytApiResponse>(this.url, params)
+      .subscribe((res: NytApiResponse) => {
+        this.reviews = {
+          ...res,
+          results: [...this.reviews.results, ...res.results],
+        };
+      });
   }
 }
